@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenCharts - Plataforma gratuita de gráficos de trading en tiempo real con velas japonesas, indicadores técnicos (SMI, ADX, medias móviles) y datos de Binance. Sin registro, sin costos.">
+    <meta name="keywords" content="gráficos de trading, velas japonesas, indicadores técnicos, SMI, ADX, medias móviles, Binance, criptomonedas, análisis técnico, trading en tiempo real, chart gratis">
+    <meta name="author" content="OpenCharts">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="OpenCharts - Gráficos de Trading en Tiempo Real">
+    <meta property="og:description" content="Plataforma gratuita de gráficos de trading con datos en tiempo real de Binance. Velas japonesas, SMI, ADX, medias móviles y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trading.sodastream.fun">
+    <title>OpenCharts - Gráficos de Trading en Tiempo Real</title>
+    <link rel="canonical" href="https://trading.sodastream.fun">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #141823;
+            --bg-card: #1a1d26;
+            --accent: #26a69a;
+            --accent-dark: #269ea6;
+            --text: #e0e0e0;
+            --text-dim: #9e9e9e;
+            --border: rgba(255,255,255,0.1);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+        .logo span { color: var(--accent); }
+        nav a { color: var(--text-dim); margin-left: 20px; text-decoration: none; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent); }
+        .hero { text-align: center; padding: 80px 20px 60px; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 30px; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover { background: var(--accent-dark); }
+        .features { padding: 60px 0; }
+        .features h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .feature-card h3 { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
+        .feature-card p { color: var(--text-dim); font-size: 0.95rem; }
+        .about { padding: 60px 0; border-top: 1px solid var(--border); }
+        .about h2 { font-size: 2rem; margin-bottom: 20px; }
+        .about p { color: var(--text-dim); max-width: 700px; margin-bottom: 16px; }
+        .indicators { padding: 60px 0; border-top: 1px solid var(--border); }
+        .indicators h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+        .indicators ul { list-style: none; max-width: 600px; margin: 0 auto; }
+        .indicators li { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .indicators li span:first-child { color: var(--accent); font-weight: 600; }
+        .indicators li span:last-child { color: var(--text-dim); }
+        .privacy { padding: 60px 0; border-top: 1px solid var(--border); }
+        .privacy h2 { font-size: 2rem; margin-bottom: 20px; }
+        .privacy p { color: var(--text-dim); max-width: 700px; margin-bottom: 12px; }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            header { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;">
+            <div class="logo">Open<span>Charts</span></div>
+            <nav>
+                <a href="#features">Caracteristicas</a>
+                <a href="#indicators">Indicadores</a>
+                <a href="#about">Acerca de</a>
+                <a href="#privacy">Privacidad</a>
+                <a href="https://github.com/ulisesten/open_charts.git" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Gr&aacute;ficos de Trading en Tiempo Real</h1>
+            <p>Plataforma gratuita de an&aacute;lisis t&eacute;cnico para criptomonedas con datos en vivo de Binance. Velas japonesas, indicadores profesionales y heuristicos, todo en tu navegador.</p>
+            <a href="https://trading.sodastream.fun" class="cta-btn">Abrir Gr&aacute;fico</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Caracter&iacute;sticas</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Vel&iacute;as Japonesas en Vivo</h3>
+                    <p>Datos de mercado cripto en tiempo real v&iacute;a WebSocket de Binance, sin delays. M&uacute;ltiples intervalos de 1m a 1w.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Indicadores T&eacute;cnicos</h3>
+                    <p>SMI (Squeeze Momentum), ADX con key level, medias m&oacute;viles 50/100/200 y m&aacute;s. Calculados en cliente, sin servidores.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Totalmente Interactivo</h3>
+                    <p>Paneo y zoom en ambos ejes, crosshair, tooltip contextual y squeeze dots. Optimizado para escritorio y m&oacute;vil.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Sin Registro</h3>
+                    <p>Sin cuentas, sin costos, sin anuncios. Abre el gr&aacute;fico y empieza a analizar. Gratis para siempre.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Open Source</h3>
+                    <p>C&oacute;digo abierto en GitHub. Construido con React y Canvas API para m&aacute;ximo rendimiento.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Resposive y Touch</h3>
+                    <p>Dise&ntilde;ado para funcionar en escritorio, tablet y m&oacute;vil. Gestos t&aacute;ctiles con pinch zoom y pan con un dedo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="indicators" id="indicators">
+        <div class="container">
+            <h2>Indicadores Disponibles</h2>
+            <ul>
+                <li><span>Medias M&oacute;viles</span> <span>SMA 50, 100, 200</span></li>
+                <li><span>SMI</span> <span>Squeeze Momentum Indicator</span></li>
+                <li><span>ADX</span> <span>Average Directional Index con key level 23</span></li>
+                <li><span>+DI / -DI</span> <span>Direccional positivo / negativo</span></li>
+                <li><span>Squeeze Dots</span> <span>Detecci&oacute;n de volatilidad comprimida</span></li>
+                <li><span>Crosshair</span> <span>Crosshair sincronizado entre paneles</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Acerca de OpenCharts</h2>
+            <p>OpenCharts es una plataforma de c&oacute;ddigo abierto para an&aacute;lisis t&eacute;cnico de criptomonedas. Nuestro objetivo es proporcionar herramientas profesionales de trading accesibles para todos, sin barreras de entrada.</p>
+            <p>El proyecto consume datos p&uacute;blicos de la API de Binance y los procesa &iacute;ntegramente en el navegador del usuario. No almacenamos datos de usuario, ni requerimos registro, ni mostramos publicidad intrusiva.</p>
+            <p>Toda la l&oacute;gica de c&aacute;lculo (SMI, ADX, medias m&oacute;viles) se ejecuta en el cliente, garantizando transparencia y privacidad.</p>
+        </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+        <div class="container">
+            <h2>Privacidad</h2>
+            <p>OpenCharts no recopila datos personales. No utiliza cookies de seguimiento ni servicios de anal&iacute;tica de terceros. El &uacute;nico almacenamiento local es la configuraci&oacute;n de paneo/zoom del usuario.</p>
+            <p>Las &uacute;nicas conexiones externas son a la API de Binance para obtener datos de mercado p&uacute;blicos. No se env&iacute;a ninguna informaci&oacute;n del usuario a ning&uacute;n servidor.</p>
+            <p>El c&oacute;ddigo fuente est&aacute; disponible en <a href="https://github.com/ulisesten/open_charts" target="_blank" rel="noopener">GitHub</a> para auditor&iacute;a.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 OpenCharts. C&oacute;digo abierto bajo licencia MIT.</p>
+            <p>Datos proporcionados por <a href="https://www.binance.com" target="_blank" rel="noopener">Binance API</a>. OpenCharts no est&aacute; afiliado con Binance.</p>
+            <p><a href="https://github.com/ulisesten/open_charts" target="_blank" rel="noopener">GitHub</a> &middot; <a href="mailto:contact@opencharts.app">Contacto</a></p>
+        </div>
+    </footer>
+</body>
+</html>
